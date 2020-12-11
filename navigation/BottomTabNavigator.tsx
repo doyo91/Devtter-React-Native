@@ -1,13 +1,17 @@
-import { Ionicons } from "@expo/vector-icons"
+import * as React from "react"
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { createStackNavigator } from "@react-navigation/stack"
-import * as React from "react"
 
 import Colors from "../constants/Colors"
 import useColorScheme from "../hooks/useColorScheme"
-import TabOneScreen from "../screens/TabOneScreen"
-import TabTwoScreen from "../screens/TabTwoScreen"
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types"
+import { LogoIcon, ProfilePicture } from "../components"
+import { HomeScreen, TabTwoScreen } from "../screens"
+import {
+  BottomTabParamList,
+  HomeNavigatorParamList,
+  TabTwoParamList,
+} from "../types"
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -16,7 +20,7 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       tabBarOptions={{
         activeTintColor: Colors[colorScheme].tint,
         showLabel: false,
@@ -24,7 +28,7 @@ export default function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="Home"
-        component={TabOneNavigator}
+        component={HomeNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="md-home" color={color} />
@@ -70,17 +74,41 @@ function TabBarIcon(props: { name: string; color: string }) {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>()
+const HomeStack = createStackNavigator<HomeNavigatorParamList>()
 
-function TabOneNavigator() {
+function HomeNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: "Tab One Title" }}
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{
+          headerTitle: () => (
+            <LogoIcon fill={Colors.light.tint} width={30} height={30} />
+          ),
+          headerTitleAlign: "center",
+          headerLeft: () => (
+            <ProfilePicture
+              image={"https://thispersondoesnotexist.com/image"}
+              size={35}
+            />
+          ),
+          headerLeftContainerStyle: {
+            marginLeft: 15,
+          },
+          headerRight: () => (
+            <MaterialCommunityIcons
+              name={"star-four-points-outline"}
+              size={30}
+              color={Colors.light.tint}
+            />
+          ),
+          headerRightContainerStyle: {
+            marginRight: 15,
+          },
+        }}
       />
-    </TabOneStack.Navigator>
+    </HomeStack.Navigator>
   )
 }
 
