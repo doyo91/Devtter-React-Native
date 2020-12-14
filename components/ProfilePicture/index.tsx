@@ -6,13 +6,19 @@ export type ProfilePictureProps = {
   size?: number
 }
 
-export const ProfilePicture = ({ image, size = 50 }: ProfilePictureProps) => (
-  <Image
-    source={{ uri: image }}
-    style={{
-      width: size,
-      height: size,
-      borderRadius: size,
-    }}
-  />
-)
+export function ProfilePicture({ image, size = 50 }: ProfilePictureProps) {
+  const imageProfile = image
+    ? image
+    : "https://i0.wp.com/www.techcult.com.br/wp-content/uploads/2017/03/perfil-twitter.png?resize=1024%2C1024&ssl=1"
+  console.log(imageProfile)
+  return (
+    <Image
+      source={{ uri: imageProfile }}
+      style={{
+        width: size,
+        height: size,
+        borderRadius: size,
+      }}
+    />
+  )
+}
