@@ -11,8 +11,7 @@ const devits = [
     createdAt: "2020-12-11T12:00:00.000Z",
     content:
       "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.",
-    image:
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhipertextual.com%2F2019%2F11%2Ftwitter-programar-tweets-version-web&psig=AOvVaw2umUIpw_1uOHZpVnSLn9Ed&ust=1607801612850000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiolfLVxu0CFQAAAAAdAAAAABAD",
+    image: "",
     numberOfComments: 123,
     numberOfRevis: 10,
     numberOfLikes: 20,

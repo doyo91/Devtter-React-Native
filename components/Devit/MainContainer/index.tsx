@@ -2,6 +2,7 @@ import React from "react"
 import { Ionicons } from "@expo/vector-icons"
 import { View, Text, Image } from "react-native"
 import { DevitType } from "../../../types"
+import { Footer } from "./Footer"
 import { styles } from "./styles"
 
 export type MainContainerProps = {
@@ -17,17 +18,15 @@ export const MainContainer = ({ devit }: MainContainerProps) => (
         <Text style={styles.createdAt}>· 15s</Text>
       </View>
       <View>
-        <Ionicons
-          style={styles.headerIcon}
-          name={"chevron-down"}
-          size={16}
-          color={"gray"}
-        />
+        <Ionicons name={"chevron-down"} size={16} color={"gray"} />
       </View>
     </View>
     <View style={styles.contentContainer}>
       <Text style={styles.content}>{devit.content}</Text>
-      {!!devit.image && <Image source={{ uri: devit.image }} />}
+      {!!devit.image && (
+        <Image source={{ uri: devit.image }} style={styles.image} />
+      )}
     </View>
+    <Footer devit={devit} />
   </View>
 )

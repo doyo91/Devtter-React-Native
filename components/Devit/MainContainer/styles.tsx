@@ -32,4 +32,12 @@ export const styles = StyleSheet.create({
     marginTop: 5,
     lineHeight: 18,
   },
+  image: {
+    width: "100%",
+    height: 200,
+    resizeMode: "cover",
+    borderRadius: 15,
+    overflow: "hidden",
+    marginVertical: 10,
+  },
 })
