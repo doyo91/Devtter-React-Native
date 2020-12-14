@@ -10,8 +10,6 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-start",
   },
-  contentContainer: {},
-  footerContainer: {},
   headerInfo: {
     flexDirection: "row",
   },

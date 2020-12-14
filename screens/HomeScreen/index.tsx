@@ -1,15 +1,14 @@
 import * as React from "react"
 import { StyleSheet } from "react-native"
-import { Devit } from "../../components"
+import { Feed, NewDevitButton } from "../../components"
 
-import { Text, View } from "../../components/Themed"
-
-import devits from "../../data/devits"
+import { View } from "../../components/Themed"
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Devit devit={devits[0]} />
+      <Feed />
+      <NewDevitButton />
     </View>
   )
 }

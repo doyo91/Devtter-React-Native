@@ -24,7 +24,7 @@ export const MainContainer = ({ devit }: MainContainerProps) => (
         <Ionicons name={"chevron-down"} size={16} color={"gray"} />
       </View>
     </View>
-    <View style={styles.contentContainer}>
+    <View>
       <Text style={styles.content}>{devit.content}</Text>
       {!!devit.image && (
         <Image source={{ uri: devit.image }} style={styles.image} />
